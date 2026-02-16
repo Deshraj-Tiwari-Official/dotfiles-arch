@@ -1,0 +1,106 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+
+(
+    address: "127.0.0.1:6600",
+    password: None,
+    theme: Some("theme.ron"),
+
+    cache_dir: None,
+    on_song_change: None,
+    volume_step: 2,
+    max_fps: 60,
+    scrolloff: 5,
+    wrap_navigation: false,
+    enable_mouse: true,
+    scroll_amount: 1,
+    enable_config_hot_reload: true,
+    enable_lyrics_hot_reload: true,
+    status_update_interval_ms: 500,
+
+    select_current_song_on_change: true,
+    ignore_leading_the: true,
+    auto_open_downloads: true,
+
+    album_art: (
+        method: Iterm2,
+        max_size_px: (width: 900, height: 900),
+        disabled_protocols: [],
+        vertical_align: Center,
+        horizontal_align: Center,
+    ),
+
+    // --- TABS CONFIGURATION ---
+    tabs: [
+        (
+            name: "     DASHBOARD  ",
+            pane: Split(
+                direction: Horizontal,
+                panes: [
+                    (size: "65%", pane: Pane(Queue)),
+                    (size: "35%", pane: Pane(AlbumArt))
+                ],
+            ),
+        ),
+        (name: "     LIBRARY  ", pane: Pane(Directories)),
+        (name: "     PLAYLISTS  ", pane: Pane(Playlists)),
+        (name: "     SEARCH  ", pane: Pane(Search)),
+    ],
+
+    search: (
+        case_sensitive: false,
+        mode: Contains,
+        tags: [
+            (value: "any", label: "Any"),
+            (value: "artist", label: "Artist"),
+            (value: "title", label: "Title"),
+            (value: "album", label: "Album"),
+        ],
+    ),
+
+    // --- KEYBINDS ---
+    keybinds: (
+        global: {
+            "q": Quit,
+            ":": CommandMode,
+            "-": VolumeDown,
+            "=": VolumeUp,
+            "<Tab>": NextTab,
+            "<S-Tab>": PreviousTab,
+            "1": SwitchToTab("     DASHBOARD  "),
+            "2": SwitchToTab("     LIBRARY  "),
+            "3": SwitchToTab("     PLAYLISTS  "),
+            "4": SwitchToTab("     SEARCH  "),
+            "s": Stop,
+            "p": TogglePause,
+            ">": NextTrack,
+            "<": PreviousTrack,
+            "f": SeekForward,
+            "b": SeekBack,
+            "z": ToggleRepeat,
+            "x": ToggleRandom,
+        },
+        navigation: {
+            "k": Up, "j": Down, "h": Left, "l": Right,
+            "<Up>": Up, "<Down>": Down, "<Left>": Left, "<Right>": Right,
+            "gg": Top, "G": Bottom,
+            "<CR>": Confirm,
+            "a": Add,
+            "D": Delete,
+            "/": EnterSearch,
+        },
+        queue: {
+            "<CR>": Play,
+            "D": DeleteAll,
+            "d": Delete,
+            "S": Save,
+            "X": Shuffle,
+        },
+        playlists: {
+            "<CR>": Play,
+            "d": Delete,
+            "a": Add,
+        },
+    ),
+)

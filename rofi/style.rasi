@@ -1,0 +1,87 @@
+* {
+    bg-base:             #0b0d12;
+    bg-inner:            #11141b;
+    bg-selected:         #1a1f2b;
+    border-color-base:   #d3f3fe;
+    border-color-light:  #969aa0;
+    text-color:          #ffffff;
+    text-subtle:         #626770; 
+    font: "JetBrainsMono Nerd Font 14";
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    width: 600px;
+    background-color: @bg-base;
+    border: 2px;
+    border-color: @border-color-base;
+    padding: 20px;
+}
+
+mainbox {
+    background-color: transparent;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    background-color: @bg-inner;
+    border: 1px;
+    border-color: @border-color-base;
+    margin: 0px 0px 16px 0px;
+    padding: 16px;
+    children: [ icon-search, entry ];
+}
+
+icon-search {
+    expand: false;
+    filename: "search";
+    size: 24px;
+    vertical-align: 0.5;
+    margin: 0px 10px 0px 0px;
+}
+
+entry {
+    vertical-align: 0.5;
+    text-color: @text-color;
+    placeholder: "Search";
+    placeholder-color: @text-subtle;
+}
+
+listview {
+    border: 0px;
+    lines: 6;
+    columns: 1;
+    scrollbar: false;
+    spacing: 8px;
+}
+
+element {
+    padding: 16px;
+    text-color: @text-color;
+    background-color: transparent;
+    orientation: horizontal;
+    cursor: pointer;
+    border: 1px;
+    border-color: transparent;
+}
+
+element selected {
+    background-color: @bg-selected;
+    border: 1px;
+    border-color: @border-color-base;
+    text-color: @text-color;
+}
+
+element-icon {
+    size: 32px;
+    margin: 0px 16px 0px 0px;
+    vertical-align: 0.5;
+}
+
+element-text {
+    vertical-align: 0.5;
+    text-color: inherit;
+}

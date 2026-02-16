@@ -1,0 +1,126 @@
+/* ----- General Styling ----- */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "FontAwesome", sans-serif;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: #cdd6f4;
+}
+
+/* ----- Workspaces ----- */
+#workspaces {
+    background: #1e1e2e;
+    margin: 4px 6px;
+    padding: 4px;
+    border-radius: 15px;
+    border-bottom: 2px solid #89b4fa;
+}
+
+#workspaces button {
+    padding: 0px 5px;
+    border-radius: 15px;
+    color: #7f849c;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #cdd6f4;
+}
+
+#workspaces button.active {
+    background: #89b4fa;
+    color: #1e1e2e;
+    font-weight: bold;
+    min-width: 40px;
+}
+
+#workspaces button.urgent {
+    background: #f38ba8;
+    color: #11111b;
+}
+
+/* ----- Window Title (Left) ----- */
+#window {
+    padding: 4px 14px;
+    margin: 4px 4px;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #1e1e2e, #181825);
+    color: #a6c9ff;
+    font-weight: bold;
+    border-bottom: 2px solid #89b4fa;
+}
+
+window#waybar.empty #window {
+    background: none;
+    border: none;
+    color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+/* ----- Modules Right Long Pill ----- */
+#hardware {
+    background: #1e1e2e;
+    padding: 6px 10px;
+    margin: 4px 4px;
+    border-radius: 15px;
+    border-bottom: 2px solid #89b4fa;
+}
+
+#battery,
+#backlight,
+#pulseaudio {
+    background: transparent;
+    padding: 0px 5px;
+}
+
+/* ----- Clock (Far Right) ----- */
+#clock {
+    padding: 6px 14px;
+    margin: 4px 6px 4px 0px;
+    border-radius: 15px;
+    background: #1e1e2e;
+    color: #89b4fa;
+    font-weight: bold;
+    border-bottom: 2px solid #89b4fa;
+}
+
+/* ----- Module Text Colors ----- */
+#battery {
+    color: #a6e3a1;
+}
+
+#battery.critical:not(.charging) {
+    background: #f38ba8;
+    color: #11111b;
+    border-radius: 15px;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#backlight {
+    color: #f9e2af;
+}
+
+#pulseaudio {
+    color: #fab387;
+}
+
+#pulseaudio.muted {
+    color: #7f849c;
+}
+
+@keyframes blink {
+    to {
+        background-color: #f38ba8;
+        color: #181825;
+    }
+}

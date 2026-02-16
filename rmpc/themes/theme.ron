@@ -1,0 +1,141 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+
+(
+    default_album_art_path: None,
+    show_song_table_header: true,
+    draw_borders: true,
+
+    // Layout widths for the file browser
+    browser_column_widths: [5, 45, 50],
+
+    symbols: (
+        song: " ",
+        dir: " ",
+        marker: "● ", 
+        ellipsis: "..."
+    ),
+
+    text_color: "#cad3f5",
+
+    tab_bar: (
+        enabled: true,
+        active_style: (bg: "#f5c2e7", fg: "#181926", modifiers: "Bold"),
+        inactive_style: (bg: None, fg: "#939ab7", modifiers: "Bold"),
+    ),
+
+    highlighted_item_style: (fg: "#8aadf4", modifiers: "Bold"),
+
+    current_item_style: (
+        fg: "#a6da95",
+        bg: "#24273a",
+        modifiers: "Bold | Italic"
+    ),
+
+    borders_style: (fg: "#363a4f"),
+    highlight_border_style: (fg: "#c6a0f6"),
+
+    progress_bar: (
+        symbols: ["░", "█", ""],
+        track_style: (fg: "#2a2f45"),
+        elapsed_style: (fg: "#89b4fa", modifiers: "Bold"),
+        thumb_style: (fg: "#f5c2e7", modifiers: "Bold"),
+    ),
+
+    scrollbar: (
+        symbols: ["│", "│", "▲", "▼"],
+        track_style: (fg: "#363a4f"),
+        ends_style: (fg: "#363a4f"),
+        thumb_style: (fg: "#c6a0f6"),
+    ),
+
+    // Format for the Library/File Browser
+    browser_song_format: [
+        (
+            kind: Group([
+                (kind: Text("    ")),
+                (kind: Property(Track)),
+                (kind: Text("    ")),
+            ])
+        ),
+        (
+            kind: Group([
+                (kind: Property(Title), style: (modifiers: "Bold")),
+                (kind: Text("        ")),
+                (kind: Property(Artist), style: (fg: "#89b4fa", modifiers: "Italic")),
+            ]),
+            default: (kind: Property(Filename))
+        ),
+    ],
+
+    // Format for the Queue/Playlist View
+    song_table_format: [
+        (
+            prop: (
+                kind: Property(Title),
+                style: (fg: "#cad3f5"),
+                highlighted_item_style: (fg: "#8aadf4", modifiers: "Bold"),
+                default: (kind: Property(Filename), style: (fg: "#939ab7"))
+            ),
+            width: "65%",
+        ),
+        (
+            prop: (
+                kind: Property(Artist),
+                style: (fg: "#89b4fa"),
+                default: (kind: Text("Unknown"), style: (fg: "#5b6078"))
+            ),
+            width: "25%",
+        ),
+        (
+            prop: (kind: Property(Duration), style: (fg: "#f5a97f")),
+            width: "10%",
+            alignment: Right,
+        ),
+    ],
+
+    header: (
+        rows: [
+            (
+                left: [
+                    (kind: Property(Status(StateV2(
+                        playing_label: "   PLAYING ",
+                        paused_label: "   PAUSED ",
+                        stopped_label: "   STOPPED "
+                    ))),
+                      style: (bg: "#8aadf4", fg: "#181926", modifiers: "Bold")),
+                    (kind: Text("   ")),
+                    (kind: Property(Song(Title)), style: (fg: "#ffffff", modifiers: "Bold"),
+                        default: (kind: Text("..."), style: (fg: "#939ab7"))
+                    )
+                ],
+                center: [],
+                right: [
+                    (kind: Text("VOL ")),
+                    (kind: Property(Status(Volume)), style: (fg: "#f5c2e7", modifiers: "Bold")),
+                    (kind: Text("% ")),
+                ]
+            ),
+        ],
+    ),
+
+    layout: Split(
+        direction: Vertical,
+        panes: [
+            (
+                size: "100%",
+                borders: "ALL",
+                pane: Split(
+                    direction: Vertical,
+                    panes: [
+                        (size: "4", borders: "BOTTOM", pane: Pane(Header)),
+                        (size: "4", borders: "NONE", pane: Pane(Tabs)),
+                        (size: "100%", borders: "NONE", pane: Pane(TabContent)),
+                        (size: "3", borders: "TOP", pane: Pane(ProgressBar)),
+                    ]
+                )
+            )
+        ],
+    ),
+)

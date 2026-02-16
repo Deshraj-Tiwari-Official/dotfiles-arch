@@ -1,0 +1,67 @@
+{
+    "layer": "top",
+    "spacing": 6,
+    "height": 35,
+    "modules-left": [
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "group/hardware",
+        "clock"
+    ],
+    // --- Group Configuration ---
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio",
+            "backlight",
+            "battery"
+        ]
+    },
+    // --- Modules ---
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false
+    },
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 50,
+        "separate-outputs": true,
+        "icon": true
+    },
+    "clock": {
+        "timezone": "Asia/Kolkata",
+        "tooltip": false,
+        "format": "󰥔 {:%I:%M %p}",
+        "format-alt": "󰃭 {:%d-%m-%Y}"
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"]
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "decent": 60,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "󰁹 {capacity}% ",
+        "format-charging": "󰂄 {capacity}% ",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}% 󰂯",
+        "format-muted": "󰖁",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol"
+    }
+}
