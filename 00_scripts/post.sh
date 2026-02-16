@@ -38,10 +38,13 @@ gum style --foreground 34 "   git config --global user.name \"(your github accou
 gum style --foreground 34 "   git config --global user.email \"(your github account email)\""
 gum style --foreground 34 "   git config --global init.defaultBranch main"
 
-echo "Press (Win + Y) to open keybinds using glow or just go and read your KEYBINDS.md file on github or something"
+# Other things
+echo "Login into bitwarden, zen browser, and login to the web services you use"
+echo "Login into atuin using the credentials you have"
+gum style --foreground 34 "   atuin longin"
+echo "Go to github, and in your profile under the developer settings section, generate a new classic token and give all permissions ngl. Copy it, and paste in some text file on your system. Whenever you will push using git / lazygit, and it prompts you to enter github username and password, you have to use this token instead of your github password."
 
-# Atuin login
-gum format --theme=dracula "#  Login into atuin and then save the new key" 
+echo "Press (Win + Y) to open keybinds using glow or just go and read your KEYBINDS.md file on github or something"
 
 # Final message
 gum style --border double --margin "1" --padding "1" --border-foreground 46 "That’s it! Now reboot. Feels good, doesn’t it? XD"
