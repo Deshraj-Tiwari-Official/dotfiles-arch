@@ -19,7 +19,7 @@ yay -S --noconfirm \
     kitty hyprland dunst waybar wofi lz4 cargo fastfetch coreutils \
     atuin gum starship yazi nerdfetch sesh lazygit yarn base-devel\
     bitwarden zen-browser-bin obsidian syncthing bluetuith mpd rmpc mpc\
-    wezterm clipman glow less
+    wezterm clipman glow python-pywal less
 
 
 # Clone tmux plugin manager

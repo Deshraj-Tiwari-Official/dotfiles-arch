@@ -15,7 +15,7 @@ config.default_workspace = "home"
 -- =========================================================
 -- VISUALS & THEME
 -- =========================================================
-config.window_background_opacity = 0.95
+config.window_background_opacity = 0.9
 
 config.window_padding = {
   left = 0,
@@ -40,7 +40,7 @@ config.tab_max_width = 32
 
 config.colors = {
   foreground = '#f8f8f2',
-  background = '#0D1117',
+  background = '#000000',
   cursor_bg = '#bbbbbb',
   cursor_fg = '#0D1117',
   cursor_border = '#bbbbbb',
@@ -57,7 +57,7 @@ config.colors = {
     '#8AADF4', '#ff78c5', '#8ae9fc', '#ffffff',
   },
   tab_bar = {
-    background = '#0D1117',
+    background = '#000000',
   },
 }
 
@@ -71,15 +71,15 @@ wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_wid
 
   if tab.is_active then
     return {
-      { Background = { Color = '#0D1117' } },
-      { Foreground = { Color = '#8AADF4' } },
+      { Background = { Color = '#000000' } },
+      { Foreground = { Color = '#e8e6e3' } },
       { Attribute = { Intensity = 'Bold' } },
       { Text = ' ' .. index .. ': ' .. title .. zoom_icon .. ' ' },
     }
   end
 
   return {
-    { Background = { Color = '#0D1117' } },
+    { Background = { Color = '#000000' } },
     { Foreground = { Color = '#808080' } },
     { Text = ' ' .. index .. ': ' .. title .. ' ' },
   }
@@ -90,10 +90,10 @@ wezterm.on('update-status', function(window, pane)
 
   if leader then
     window:set_left_status(wezterm.format({
-      { Foreground = { Color = '#0D1117' } },
-      { Background = { Color = '#8AADF4' } },
+      { Foreground = { Color = '#000000' } },
+      { Background = { Color = '#e8e6e3' } },
       { Attribute = { Intensity = 'Bold' } },
-      { Text = ' 󰘳 LEADER ' }
+      { Text = ' 󰘳  ' }
     }))
   else
     window:set_left_status('')
@@ -125,7 +125,7 @@ wezterm.on('update-right-status', function(window, pane)
   end
 
   -- Workspace
-  table.insert(cells, { Foreground = { Color = '#8AADF4' } })
+  table.insert(cells, { Foreground = { Color = '#e8e6e3' } })
   table.insert(cells, { Text = '   ' .. workspace .. '  ' })
 
   window:set_right_status(wezterm.format(cells))

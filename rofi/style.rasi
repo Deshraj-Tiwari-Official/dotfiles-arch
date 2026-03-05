@@ -1,11 +1,12 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
 * {
-    bg-base:             #0b0d12;
-    bg-inner:            #11141b;
-    bg-selected:         #1a1f2b;
-    border-color-base:   #d3f3fe;
-    border-color-light:  #969aa0;
-    text-color:          #ffffff;
-    text-subtle:         #626770; 
+    bg-base:             @background;
+    bg-inner:            @background-alt;
+    bg-selected:         @color8;
+    border-color-base:   @color4;
+    border-color-light:  @color8;
+    text-color:          @foreground;
+    text-subtle:         @color8;
     font: "JetBrainsMono Nerd Font 14";
     background-color: transparent;
     margin: 0;
@@ -17,7 +18,7 @@ window {
     width: 600px;
     background-color: @bg-base;
     border: 2px;
-    border-color: @border-color-base;
+    border-color: @selected-normal-background;
     padding: 20px;
 }
 
@@ -29,7 +30,7 @@ mainbox {
 inputbar {
     background-color: @bg-inner;
     border: 1px;
-    border-color: @border-color-base;
+    border-color: @selected-normal-background;
     margin: 0px 0px 16px 0px;
     padding: 16px;
     children: [ icon-search, entry ];

@@ -1,3 +1,5 @@
+@import "../../.cache/wal/colors-waybar.css";
+
 /* ----- General Styling ----- */
 * {
     border: none;
@@ -9,40 +11,40 @@
 
 window#waybar {
     background: transparent;
-    color: #cdd6f4;
+    color: @foreground;
 }
 
 /* ----- Workspaces ----- */
 #workspaces {
-    background: #1e1e2e;
+    background: @background;
     margin: 4px 6px;
     padding: 4px;
     border-radius: 15px;
-    border-bottom: 2px solid #89b4fa;
+    border-bottom: 2px solid @color7;
 }
 
 #workspaces button {
     padding: 0px 5px;
     border-radius: 15px;
-    color: #7f849c;
+    color: @color8;
     transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 #workspaces button:hover {
-    background: rgba(255, 255, 255, 0.05);
-    color: #cdd6f4;
+    background: rgba(255, 255, 255, 0.1);
+    color: @foreground;
 }
 
 #workspaces button.active {
-    background: #89b4fa;
-    color: #1e1e2e;
+    background: @color7;
+    color: @background;
     font-weight: bold;
     min-width: 40px;
 }
 
 #workspaces button.urgent {
-    background: #f38ba8;
-    color: #11111b;
+    background: @color1;
+    color: @background;
 }
 
 /* ----- Window Title (Left) ----- */
@@ -50,10 +52,9 @@ window#waybar {
     padding: 4px 14px;
     margin: 4px 4px;
     border-radius: 15px;
-    background: linear-gradient(45deg, #1e1e2e, #181825);
-    color: #a6c9ff;
+    background: @background;
     font-weight: bold;
-    border-bottom: 2px solid #89b4fa;
+    border-bottom: 2px solid @color7;
 }
 
 window#waybar.empty #window {
@@ -66,11 +67,11 @@ window#waybar.empty #window {
 
 /* ----- Modules Right Long Pill ----- */
 #hardware {
-    background: #1e1e2e;
+    background: @background;
     padding: 6px 10px;
     margin: 4px 4px;
     border-radius: 15px;
-    border-bottom: 2px solid #89b4fa;
+    border-bottom: 2px solid @color7;
 }
 
 #battery,
@@ -85,20 +86,14 @@ window#waybar.empty #window {
     padding: 6px 14px;
     margin: 4px 6px 4px 0px;
     border-radius: 15px;
-    background: #1e1e2e;
-    color: #89b4fa;
+    background: @background;
     font-weight: bold;
-    border-bottom: 2px solid #89b4fa;
+    border-bottom: 2px solid @color7;
 }
 
 /* ----- Module Text Colors ----- */
-#battery {
-    color: #a6e3a1;
-}
-
 #battery.critical:not(.charging) {
-    background: #f38ba8;
-    color: #11111b;
+    background: @color1; /* Red */
     border-radius: 15px;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -106,21 +101,9 @@ window#waybar.empty #window {
     animation-direction: alternate;
 }
 
-#backlight {
-    color: #f9e2af;
-}
-
-#pulseaudio {
-    color: #fab387;
-}
-
-#pulseaudio.muted {
-    color: #7f849c;
-}
-
 @keyframes blink {
     to {
-        background-color: #f38ba8;
-        color: #181825;
+        background-color: @color1;
+        color: @foreground;
     }
 }

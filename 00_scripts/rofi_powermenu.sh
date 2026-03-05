@@ -16,7 +16,7 @@ selected=$(printf "%s\n%s\n%s\n%s" \
             }
 
             window {
-                width: 360px;
+                width: 240px;
             }
 
             inputbar {
@@ -24,8 +24,6 @@ selected=$(printf "%s\n%s\n%s\n%s" \
             }
 
             listview {
-                columns: 2;
-                lines: 2;
                 spacing: 8px;
                 cycle: false;
                 dynamic: false;
@@ -33,7 +31,6 @@ selected=$(printf "%s\n%s\n%s\n%s" \
 
             element {
                 border: 1px;
-                border-color: #2e3440;
                 padding: 20px 0px;
                 background-color: #11141b;
                 text-color: #ffffff;
@@ -53,7 +50,6 @@ selected=$(printf "%s\n%s\n%s\n%s" \
             element selected {
                 background-color: #1a1f2b;
                 border: 2px;
-                border-color: #969aa0;
             }
          ')
 
