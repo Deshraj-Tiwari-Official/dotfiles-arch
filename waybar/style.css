@@ -20,7 +20,7 @@ window#waybar {
     margin: 4px 6px;
     padding: 4px;
     border-radius: 15px;
-    border-bottom: 2px solid @color7;
+    border: 2px solid @color7;
 }
 
 #workspaces button {
@@ -54,7 +54,7 @@ window#waybar {
     border-radius: 15px;
     background: @background;
     font-weight: bold;
-    border-bottom: 2px solid @color7;
+    border: 2px solid @color7;
 }
 
 window#waybar.empty #window {
@@ -71,7 +71,7 @@ window#waybar.empty #window {
     padding: 6px 10px;
     margin: 4px 4px;
     border-radius: 15px;
-    border-bottom: 2px solid @color7;
+    border: 2px solid @color7;
 }
 
 #battery,
@@ -88,7 +88,7 @@ window#waybar.empty #window {
     border-radius: 15px;
     background: @background;
     font-weight: bold;
-    border-bottom: 2px solid @color7;
+    border: 2px solid @color7;
 }
 
 /* ----- Module Text Colors ----- */
