@@ -255,4 +255,4 @@
 | `d` | **Delete** Selection |
 | `D` | **Clear** Queue / Delete All |
 | `S` | **Save** Queue (as Playlist) |
-| `X` | **Shuffle** Queue |
+| `x` | **Shuffle** Queue |
