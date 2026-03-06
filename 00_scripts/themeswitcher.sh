@@ -28,8 +28,8 @@ if [[ $NEXT_INDEX -ge ${#wallpapers[@]} ]]; then
 fi
 FULL_PATH="${wallpapers[$NEXT_INDEX]}"
 
-# 1. Apply the wallpaper using swww
-swww img "$FULL_PATH" --transition-fps 30 --transition-type any --transition-duration 2
+# 1. Apply the wallpaper using awww
+awww img "$FULL_PATH" --transition-fps 30 --transition-type any --transition-duration 2
 
 # 2. Generate color scheme with pywal
 wal -q -i "$FULL_PATH" -n -s -t
