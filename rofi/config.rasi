@@ -1,15 +1,16 @@
 configuration {
-    modi: "drun";
-    show-icons: true;
-    drun-display-format: "{icon}  {name}";
-    font: "JetBrainsMono Nerd Font 12";
-    fixed-num-lines: false;
-    show-match: true;
-    case-sensitive: false;
-    sort: true;
-    sorting-method: "fzf";
-    disable-history: false;
-    hover-select: true;
-    eh: 1;
+    modi:                "drun,run";
+    show-icons:          true;
+    icon-theme:          "Papirus";
+    drun-display-format: "{name}";
+    display-drun:        "Apps";
+    font:                "JetBrainsMono Nerd Font 13";
+    fixed-num-lines:     true;
+    case-sensitive:      false;
+    sort:                true;
+    sorting-method:      "fzf";
+    disable-history:     false;
+    hover-select:        true;
 }
+
 @theme "style"

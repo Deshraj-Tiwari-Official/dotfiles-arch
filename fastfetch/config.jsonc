@@ -1,79 +1,68 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "source": "ascii.txt",
+    "type": "file"
+  },
   "display": {
-    "separator": "    "
+    "separator": " : "
   },
   "modules": [
     {
-      "type": "custom",
-      "format": "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"
-    },
-    "break",
-    {
       "type": "os",
-      "key": "  ⏻",
-      "keyColor": "blue"
+      "key": "  󰣇 OS",
+      "format": "{2}",
+      "keyColor": "red"
     },
     {
       "type": "kernel",
-      "key": "  ",
-      "keyColor": "white"
+      "key": "   Kernel",
+      "format": "{2}",
+      "keyColor": "red"
     },
     {
       "type": "packages",
-      "key": "  󰮯",
+      "key": "  󰏗 Packages",
+      "keyColor": "green"
+    },
+    {
+      "type": "terminal",
+      "key": "   Terminal",
       "keyColor": "yellow"
     },
     {
       "type": "wm",
-      "key": "  󰨇",
-      "keyColor": "blue"
-    },
-    {
-      "type": "terminal",
-      "key": "  ",
-      "keyColor": "magenta"
-    },
-    {
-      "type": "shell",
-      "key": "  ",
+      "key": "  󱗃 WM",
+      "format": "{2}",
       "keyColor": "yellow"
-    },
-    "break",
-    {
-      "type": "custom",
-      "format": "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫"
-    },
-    "break",
-    {
-      "type": "host",
-      "key": "  ",
-      "keyColor": "bright_blue"
     },
     {
       "type": "cpu",
-      "key": "  ",
-      "keyColor": "bright_green"
+      "format": "{1} @ {7}",
+      "key": "   CPU",
+      "keyColor": "blue"
     },
     {
       "type": "gpu",
-      "key": "  󱤓",
-      "keyColor": "red"
+      "format": "{1} {2}",
+      "key": "  󰊴 GPU",
+      "keyColor": "blue"
     },
     {
       "type": "memory",
-      "key": "  󰍛",
-      "keyColor": "bright_yellow"
+      "key": "  󰍛 Memory",
+      "keyColor": "magenta"
     },
     {
-      "type": "disk",
-      "key": "  ",
-      "keyColor": "bright_cyan"
+      "type": "uptime",
+      "key": "  󱫐 Uptime",
+      "keyColor": "red"
     },
     "break",
     {
-      "type": "custom",
-      "format": "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
+      "type": "colors",
+      "paddingLeft": 2,
+      "symbol": "circle"
     }
   ]
 }

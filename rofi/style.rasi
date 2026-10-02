@@ -1,88 +1,94 @@
 @import "~/.cache/wal/colors-rofi-dark.rasi"
+
 * {
-    bg-base:             @background;
-    bg-inner:            @background-alt;
-    bg-selected:         @color8;
-    border-color-base:   @color4;
-    border-color-light:  @color8;
-    text-color:          @foreground;
-    text-subtle:         @color8;
-    font: "JetBrainsMono Nerd Font 14";
-    background-color: transparent;
-    margin: 0;
-    padding: 0;
-    spacing: 0;
+    /* Color token mappings based on pywal palette */
+    md-sys-surface:            @background;
+    md-sys-surface-variant:    @background-alt;
+    md-sys-primary:            @color4;
+    md-sys-primary-container:  @color8;
+    md-sys-on-surface:         @foreground;
+    md-sys-outline:            @color8;
+
+    font:                      "Rubik, JetBrainsMono Nerd Font 13";
+    background-color:          transparent;
+    margin:                    0;
+    padding:                   0;
+    spacing:                   0;
 }
 
 window {
-    width: 600px;
-    background-color: @bg-base;
-    border: 2px;
-    border-color: @selected-normal-background;
-    padding: 20px;
+    width:                     640px;
+    background-color:          @md-sys-surface;
+    border-radius:             28px;
+    border:                    1px;
+    border-color:              @md-sys-outline;
+    padding:                   24px;
 }
 
 mainbox {
-    background-color: transparent;
-    children: [ inputbar, listview ];
+    background-color:          transparent;
+    spacing:                   16px;
+    children:                  [ inputbar, listview ];
 }
 
+/* Expressive pill-shaped search dock */
 inputbar {
-    background-color: @bg-inner;
-    border: 1px;
-    border-color: @selected-normal-background;
-    margin: 0px 0px 16px 0px;
-    padding: 16px;
-    children: [ icon-search, entry ];
+    background-color:          @md-sys-surface-variant;
+    border-radius:             32px;
+    padding:                   12px 20px;
+    spacing:                   12px;
+    children:                  [ icon-search, entry ];
 }
 
 icon-search {
-    expand: false;
-    filename: "search";
-    size: 24px;
-    vertical-align: 0.5;
-    margin: 0px 10px 0px 0px;
+    expand:                    false;
+    filename:                  "search";
+    size:                      20px;
+    vertical-align:            0.5;
 }
 
 entry {
-    vertical-align: 0.5;
-    text-color: @text-color;
-    placeholder: "Search";
-    placeholder-color: @text-subtle;
+    vertical-align:            0.5;
+    text-color:                @md-sys-on-surface;
+    placeholder:               "Search apps...";
+    placeholder-color:         @md-sys-outline;
 }
 
+/* Clean vertical container */
 listview {
-    border: 0px;
-    lines: 6;
-    columns: 1;
-    scrollbar: false;
-    spacing: 8px;
+    border:                    0px;
+    lines:                     6;
+    columns:                   1;
+    scrollbar:                 false;
+    spacing:                   6px;
+    cycle:                     true;
 }
 
+/* Material rounded list items */
 element {
-    padding: 16px;
-    text-color: @text-color;
-    background-color: transparent;
-    orientation: horizontal;
-    cursor: pointer;
-    border: 1px;
-    border-color: transparent;
+    padding:                   12px 18px;
+    border-radius:             20px;
+    text-color:                @md-sys-on-surface;
+    background-color:          transparent;
+    orientation:               horizontal;
+    cursor:                    pointer;
+    spacing:                   14px;
 }
 
+/* Tonal pill highlight on active selection */
 element selected {
-    background-color: @bg-selected;
-    border: 1px;
-    border-color: @border-color-base;
-    text-color: @text-color;
+    background-color:          @md-sys-primary-container;
+    text-color:                @md-sys-primary;
 }
 
 element-icon {
-    size: 32px;
-    margin: 0px 16px 0px 0px;
-    vertical-align: 0.5;
+    size:                      28px;
+    vertical-align:            0.5;
+    background-color:          transparent;
 }
 
 element-text {
-    vertical-align: 0.5;
-    text-color: inherit;
+    vertical-align:            0.5;
+    text-color:                inherit;
+    background-color:          transparent;
 }

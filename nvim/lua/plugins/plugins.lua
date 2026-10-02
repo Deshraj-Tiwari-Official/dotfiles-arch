@@ -1,8 +1,8 @@
 return {
-  -- 1. fidget.nvim -- LSP Progress Notifications
-  "j-hui/fidget.nvim",
+  -- LSP Progress Notifications (fidget.nvim)
+  {"j-hui/fidget.nvim"},
 
-  -- 2. vim-illuminate -- Highlight Word Under Cursor
+  -- Word & Reference Highlighting (vim-illuminate)
   {
     "RRethy/vim-illuminate",
     config = function()
@@ -12,7 +12,7 @@ return {
     end,
   },
 
-  -- 3. autoclose.nvim -- Auto-close Brackets/Quotes
+  -- Automatic Delimiter Pairing (autoclose.nvim)
   {
     "m4xshen/autoclose.nvim",
     config = function()
@@ -20,7 +20,7 @@ return {
     end,
   },
 
-  -- 4. onedarkpro.nvim -- Colorscheme
+  -- Color Scheme Configuration (onedarkpro.nvim)
   {
     "olimorris/onedarkpro.nvim",
     priority = 1000, -- Ensure it loads first
@@ -34,7 +34,7 @@ return {
     end,
   },
 
-  -- 5. todo-comments.nvim -- Highlight TODO/FIXME
+  -- Task & Comment Annotations (todo-comments.nvim)
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -46,7 +46,7 @@ return {
     end,
   },
 
-  -- 6. undotree -- Visual Undo History
+  -- Persistent Undo Tree (undotree)
   {
     "mbbill/undotree",
     config = function()
@@ -54,7 +54,7 @@ return {
     end,
   },
 
-  -- 7. flash.nvim -- Fast Navigation/Jumping
+  -- Motion & Search Navigation (flash.nvim)
   {
     "folke/flash.nvim",
     event = "VeryLazy",
@@ -70,7 +70,7 @@ return {
     },
   },
 
-  -- 8. render-markdown.nvim -- Markdown Preview/Rendering
+  -- In-Buffer Markdown Rendering (render-markdown.nvim)
   {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
@@ -79,7 +79,7 @@ return {
     opts = {},
   },
 
-  -- 9. Harpoon -- Quick File Navigation
+  -- Quick File Marking & Switching (Harpoon)
   {
     'ThePrimeagen/harpoon',
     branch = 'harpoon2',
@@ -92,19 +92,19 @@ return {
       harpoon:setup({})
 
       -- File Operations
-      vim.keymap.set('n', '<leader>ha', function() harpoon:list():append() end, { desc = 'Harpoon: Add current file' })
-      vim.keymap.set('n', '<leader>he', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = 'Harpoon: List all Harpoon files' })
-      vim.keymap.set('n', '<leader>hx', function() harpoon:list():clear() end, { desc = 'Harpoon: Clear all Harpoon files' })
+      vim.keymap.set('n', '<M-a>', function() harpoon:list():add() end, { desc = 'Harpoon: Add current file' })
+      vim.keymap.set('n', '<M-e>', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = 'Harpoon: List all Harpoon files' })
+      vim.keymap.set('n', '<M-x>', function() harpoon:list():clear() end, { desc = 'Harpoon: Clear all Harpoon files' })
 
       -- File Selection
-      vim.keymap.set('n', '<leader>hh', function() harpoon:list():select(1) end, { desc = 'Harpoon: Select Harpoon file 1'})
-      vim.keymap.set('n', '<leader>hj', function() harpoon:list():select(2) end, { desc = 'Harpoon: Select Harpoon file 2'})
-      vim.keymap.set('n', '<leader>hk', function() harpoon:list():select(3) end, { desc = 'Harpoon: Select Harpoon file 3'})
-      vim.keymap.set('n', '<leader>hl', function() harpoon:list():select(4) end, { desc = 'Harpoon: Select Harpoon file 4'})
+      vim.keymap.set('n', '<M-h>', function() harpoon:list():select(1) end, { desc = 'Harpoon: Select Harpoon file 1' })
+      vim.keymap.set('n', '<M-j>', function() harpoon:list():select(2) end, { desc = 'Harpoon: Select Harpoon file 2' })
+      vim.keymap.set('n', '<M-k>', function() harpoon:list():select(3) end, { desc = 'Harpoon: Select Harpoon file 3' })
+      vim.keymap.set('n', '<M-l>', function() harpoon:list():select(4) end, { desc = 'Harpoon: Select Harpoon file 4' })
     end,
   },
 
-  -- 10. Comment.nvim -- Easy Commenting
+  -- Code Commenting Mappings (Comment.nvim)
   {
       "numToStr/Comment.nvim",
       opts = {
@@ -130,7 +130,7 @@ return {
       },
   },
 
-  -- 11. oil.nvim -- File Explorer/Editor
+  -- Buffer-Based File System Editor (oil.nvim)
   {
     "stevearc/oil.nvim",
     opts = {},
@@ -149,5 +149,19 @@ return {
         })
         vim.keymap.set("n", "<BS>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
     end,
-  }
+  },
+
+  -- Bufferline
+  {
+    "akinsho/bufferline.nvim",
+    version = "*",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    opts = {
+      options = {
+        mode = "buffers",
+        diagnostics = "nvim_lsp",
+        always_show_bufferline = true,
+      },
+    },
+  },
 }

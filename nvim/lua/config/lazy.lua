@@ -1,4 +1,4 @@
--- Bootstrap lazy.nvim
+-- Bootstrap lazy.nvim (Auto-Install)
 -- This checks if "lazy.nvim" exists. If not, it clones it from GitHub.
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -16,12 +16,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath) -- Add lazy to the runtime path
 
--- LEADER KEYS
+-- Leader Key Mappings
 -- Must be set BEFORE loading lazy so plugins pick up the correct leader.
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Setup lazy.nvim
+-- Plugin Manager Setup & Configuration
 require("lazy").setup({
   spec = {
     -- This tells lazy to look at your "lua/plugins/" directory and load files there.

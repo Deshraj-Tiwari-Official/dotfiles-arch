@@ -1,4 +1,5 @@
 return {
+  -- Mason Core (LSP/DAP/Linter Package Manager)
   -- 1. Mason - To install LSP servers
   {
     "williamboman/mason.nvim",
@@ -7,6 +8,7 @@ return {
     end,
   },
 
+  -- Mason LSP Bridge (Automated Installation)
   -- 2. Mason LSP Config
   {
     "williamboman/mason-lspconfig.nvim",
@@ -20,6 +22,7 @@ return {
     end,
   },
 
+  -- LSP Server Configuration & Keymaps
   -- 3. LSP Config - To configure and enable LSP servers
   {
     "neovim/nvim-lspconfig",
@@ -37,6 +40,7 @@ return {
           lspconfig.clangd.setup({ capabilities = capabilities })
       end
 
+      -- LSP Navigation & Action Keybindings
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Docs" })
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
@@ -44,6 +48,7 @@ return {
     end,
   },
 
+  -- Code Formatting (none-ls / null-ls)
   -- 4. None-ls - Formatting
   {
     "nvimtools/none-ls.nvim",
