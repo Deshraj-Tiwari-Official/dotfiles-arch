@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# Directories
+# Directory & State Paths
 WALLPAPER_DIR="$HOME/dotfiles/backgrounds"
 CACHE_FILE="$HOME/.cache/last_wallpaper"
 
+# Wallpaper Discovery & Indexing
 shopt -s nullglob
 wallpapers=("$WALLPAPER_DIR"/*)
 shopt -u nullglob
@@ -13,6 +14,7 @@ if [[ ${#wallpapers[@]} -eq 0 ]]; then
     exit 1
 fi
 
+# Next Wallpaper Selection (Cyclic)
 if [[ -f "$CACHE_FILE" ]]; then
     LAST_WALLPAPER=$(cat "$CACHE_FILE")
 else
@@ -32,16 +34,16 @@ if [[ $NEXT_INDEX -ge ${#wallpapers[@]} ]]; then
 fi
 FULL_PATH="${wallpapers[$NEXT_INDEX]}"
 
-# 1. Apply the wallpaper using awww
-awww img "$FULL_PATH" --transition-fps 30 --transition-type any --transition-duration 2
+# Wallpaper Application (awww)
+awww img "$FULL_PATH" --transition-fps 30 --transition-type any --transition-duration 1.2
 
-# 2. Generate color scheme with pywal
+# Color Palette Generation (pywal)
 wal -q -i "$FULL_PATH" -n -s -t
 
-# --- Cava Logic Integration ---
+# Audio Visualizer Theming (Cava)
 mkdir -p ~/.config/cava
 
-# Source pywal's auto-generated bash script
+# Source pywal colors
 if [[ -f "$HOME/.cache/wal/colors.sh" ]]; then
     source "$HOME/.cache/wal/colors.sh"
 else
@@ -49,7 +51,7 @@ else
     exit 1
 fi
 
-# ATOMIC WRITE: Write Cava config to a temporary file first
+# Atomic write for Cava gradient configuration
 cat <<EOF > ~/.config/cava/config.tmp
 [color]
 gradient = 1
@@ -59,20 +61,26 @@ gradient_color_2 = '$color1'
 gradient_color_3 = '$color2'
 gradient_color_4 = '$color3'
 gradient_color_5 = '$color4'
+gradient_color_5 = '$color4'
 gradient_color_6 = '$color5'
 gradient_color_7 = '$color6'
 gradient_color_8 = '$color7'
 EOF
 
-# Instantly swap the temp file in to replace the old config
 mv ~/.config/cava/config.tmp ~/.config/cava/config
 
-# ------------------------------
-
-# 3. Save path to cache for persistence
+# Persistence Cache Update
 echo "$FULL_PATH" > "$CACHE_FILE"
 
-# 4. Reload Configs dynamically
-# SIGUSR1 is the official Cava signal to reload the config without closing
+# Dynamic Service & UI Reloads
+# Live reload Cava and Waybar without restarting processes
 killall -q -SIGUSR1 cava
 killall -q -SIGUSR2 waybar
+
+# Relaunch active Rofi instance with updated colors if currently visible
+if pgrep -x rofi >/dev/null && [[ -f /tmp/active_rofi_menu ]]; then
+    ACTIVE_SCRIPT=$(cat /tmp/active_rofi_menu)
+    killall -q rofi
+    sleep 0.1
+    bash "$ACTIVE_SCRIPT" &
+fi
