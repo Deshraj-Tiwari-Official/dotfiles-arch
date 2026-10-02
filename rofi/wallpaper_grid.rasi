@@ -1,0 +1,114 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+* {
+    /* Dynamic MD3 token assignments from pywal */
+    md-sys-surface:           @background;
+    md-sys-surface-variant:   @background-alt;
+    md-sys-primary:           @color4;
+    md-sys-primary-container: @color8;
+    md-sys-on-surface:        @foreground;
+    md-sys-outline:           @color8;
+
+    font:                     "JetBrainsMono Nerd Font 10";
+    background-color:         transparent;
+    text-color:               @md-sys-on-surface;
+    margin:                   0;
+    padding:                  0;
+}
+
+window {
+    width:                    1060px;
+    background-color:         @md-sys-surface;
+    border-radius:            36px;
+    border:                   2px;
+    border-color:             @md-sys-outline;
+    padding:                  24px;
+}
+
+mainbox {
+    background-color:         transparent;
+    spacing:                  16px;
+    children:                 [ inputbar, listview ];
+}
+
+/* Expressive Pill Searchdock */
+inputbar {
+    enabled:                  true;
+    background-color:         @md-sys-surface-variant;
+    border-radius:            28px;
+    padding:                  12px 20px;
+    spacing:                  12px;
+    children:                 [ icon-search, entry ];
+}
+
+icon-search {
+    expand:                   false;
+    filename:                 "search";
+    size:                     20px;
+    vertical-align:           0.5;
+}
+
+entry {
+    vertical-align:           0.5;
+    text-color:               @md-sys-on-surface;
+    placeholder:              "Search Wallpapers...";
+    placeholder-color:        @md-sys-outline;
+    font:                     "JetBrainsMono Nerd Font 12";
+}
+
+/* 4x2 Thumbnail Grid */
+listview {
+    columns:                  4;
+    lines:                    2;
+    spacing:                  16px;
+    cycle:                    true;
+    dynamic:                  true;
+    scrollbar:                false;
+    layout:                   vertical;
+    fixed-height:             true;
+    fixed-columns:            true;
+}
+
+/* Expressive Card Tile */
+element {
+    orientation:              vertical;
+    border-radius:            28px;
+    background-color:         @md-sys-surface-variant;
+    border:                   2px;
+    border-color:             transparent;
+    padding:                  12px;
+    spacing:                  10px;
+    cursor:                   pointer;
+    children:                 [ element-icon, element-text ];
+}
+
+/* Selected Tonal Elevation */
+element selected {
+    background-color:         @md-sys-primary-container;
+    border-color:             @md-sys-primary;
+}
+
+/* Large Rounded Thumbnail Window */
+element-icon {
+    size:                     180px;
+    horizontal-align:         0.5;
+    vertical-align:           0.5;
+    border-radius:            20px;
+    cursor:                   inherit;
+    background-color:         transparent;
+}
+
+/* Material Pill-Style Title Label */
+element-text {
+    horizontal-align:         0.5;
+    vertical-align:           0.5;
+    text-color:               @md-sys-on-surface;
+    cursor:                   inherit;
+    background-color:         transparent;
+    padding:                  4px 8px;
+}
+
+element selected element-text {
+    text-color:               @md-sys-primary;
+    font:                     "JetBrainsMono Nerd Font Bold 10";
+}
