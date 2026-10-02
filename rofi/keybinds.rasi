@@ -1,0 +1,93 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+* {
+    md-sys-surface:            @background;
+    md-sys-surface-variant:    @background-alt;
+    md-sys-primary:            @color4;
+    md-sys-primary-container:  @color8;
+    md-sys-on-surface:         @foreground;
+    md-sys-outline:            @color8;
+
+    /* Monospace font so key columns align evenly */
+    font:                      "JetBrainsMono Nerd Font 10.5";
+    background-color:          transparent;
+    margin:                    0;
+    padding:                   0;
+    spacing:                   0;
+}
+
+window {
+    width:                     920px;
+    background-color:          @md-sys-surface;
+    border-radius:             24px;
+    border:                    1px;
+    border-color:              @md-sys-outline;
+    padding:                   16px 20px;
+}
+
+mainbox {
+    background-color:          transparent;
+    spacing:                   12px;
+    children:                  [ inputbar, listview ];
+}
+
+inputbar {
+    background-color:          @md-sys-surface-variant;
+    border-radius:             18px;
+    padding:                   8px 14px;
+    spacing:                   10px;
+    children:                  [ icon-search, entry ];
+}
+
+icon-search {
+    expand:                    false;
+    filename:                  "search";
+    size:                      16px;
+    vertical-align:            0.5;
+}
+
+entry {
+    vertical-align:            0.5;
+    text-color:                @md-sys-on-surface;
+    placeholder:               "Search Keybinds...";
+    placeholder-color:         @md-sys-outline;
+}
+
+listview {
+    border:                    0px;
+    lines:                     15;
+    columns:                   1;
+    scrollbar:                 false;
+    spacing:                   3px;
+    cycle:                     true;
+}
+
+element {
+    /* Compact padding for a cheatsheet look */
+    padding:                   5px 12px;
+    border-radius:             10px;
+    text-color:                @md-sys-on-surface;
+    background-color:          transparent;
+    orientation:               horizontal;
+    cursor:                    pointer;
+    spacing:                   8px;
+}
+
+/* Subtle selection: transparent background with accent color & left border marker */
+element selected {
+    background-color:          transparent;
+    text-color:                @md-sys-primary;
+    border:                    0px 0px 0px 3px;
+    border-color:              @md-sys-primary;
+}
+
+element-icon {
+    size:                      0px;
+    enabled:                   false;
+}
+
+element-text {
+    vertical-align:            0.5;
+    text-color:                inherit;
+    background-color:          transparent;
+}

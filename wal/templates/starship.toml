@@ -1,0 +1,47 @@
+format = """
+[]({color0})\
+$directory\
+[](fg:{color0} bg:{color8})\
+$git_branch\
+$git_status\
+[](fg:{color8} bg:{color4})\
+$python\
+$nodejs\
+$rust\
+[](fg:{color4})
+$character"""
+
+command_timeout = 3000
+
+[character]
+success_symbol = "[❯](bold {color4}) "
+error_symbol = "[❯](bold {color1}) "
+
+[directory]
+style = "bg:{color0} fg:{color7}"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "~/"
+
+[git_branch]
+symbol = " "
+style = "bg:{color8} fg:{color7}"
+format = '[ $symbol$branch ]($style)'
+
+[git_status]
+style = "bg:{color8} fg:{color7}"
+format = '[$all_status$ahead_behind ]($style)'
+
+[python]
+style = "bg:{color4} fg:{color0}"
+format = '[(\($virtualenv\) )]($style)'
+
+[nodejs]
+symbol = " "
+style = "bg:{color4} fg:{color0}"
+format = '[ $symbol($version) ]($style)'
+
+[rust]
+symbol = " "
+style = "bg:{color4} fg:{color0}"
+format = '[ $symbol($version) ]($style)'
