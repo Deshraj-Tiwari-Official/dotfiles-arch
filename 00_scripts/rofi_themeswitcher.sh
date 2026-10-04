@@ -73,3 +73,6 @@ echo "$FULL_PATH" > "$CACHE_FILE"
 # Live reload Cava and Waybar without restarting processes
 killall -q -SIGUSR1 cava
 killall -q -SIGUSR2 waybar
+
+# Update Cache & Link to Current Wallpaper
+ln -sf "$FULL_PATH" "$HOME/.cache/current_wallpaper"

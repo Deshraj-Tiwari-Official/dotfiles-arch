@@ -132,3 +132,8 @@ alias bt='bluetuith'
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
 eval "$(atuin init zsh)"
+
+# -----------------------------
+# Others
+# -----------------------------
+CACHE_WALLPAPER="$HOME/.cache/last_wallpaper"

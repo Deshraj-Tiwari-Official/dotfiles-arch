@@ -84,3 +84,6 @@ if pgrep -x rofi >/dev/null && [[ -f /tmp/active_rofi_menu ]]; then
     sleep 0.1
     bash "$ACTIVE_SCRIPT" &
 fi
+
+# Update Cache & Link to Current Wallpaper
+ln -sf "$FULL_PATH" "$HOME/.cache/current_wallpaper"
