@@ -12,10 +12,10 @@
 
 /* Floating darker bar backdrop */
 window#waybar {
-    background-color: alpha(@background, 0.85);
+    background-color: @background;
     color: @foreground;
     border-radius: 14px;
-    border: 1px solid alpha(@foreground, 0.12);
+    border: 1px solid #909091;
     box-shadow: 0 3px 8px alpha(#000000, 0.45);
     transition: background-color 0.3s ease;
 }
