@@ -15,13 +15,13 @@ fi
 # System Packages & Applications Installation
 yay -S --noconfirm \
     git curl wget p7zip tar rsync aria2 unzip stow btop zoxide fzf bat zsh\
-    ripgrep tmux eza hyprlock hyprpicker hypridle pavucontrol neovim lz4\
+    ripgrep tmux eza hyprlock hyprpicker hypridle pavucontrol grim slurp lz4\
     power-profiles-daemon xdg-desktop-portal-wlr xdg-desktop-portal-hyprland\
     kitty hyprland dunst waybar wofi brightnessctl cargo fastfetch coreutils\
     atuin gum starship yazi nerdfetch lazygit yarn base-devel linux-headers\
     bitwarden zen-browser-bin obsidian syncthing bluetuith mpd rmpc mpc vlc\
-    wezterm clipman glow python-pywal less rofi awww cava tree-sitter\
-    tree-sitter-cli vlc-plugins-all obs-studio hyprsunset grim slurp\
+    wezterm clipman glow python-pywal less rofi awww cava tree-sitter neovim\
+    tree-sitter-cli vlc-plugins-all obs-studio hyprsunset wf-recorder\
 
 # Tmux Plugin Manager (TPM)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

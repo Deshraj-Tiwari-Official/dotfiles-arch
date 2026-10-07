@@ -126,10 +126,11 @@ hl.bind(mod .. " + SHIFT + W", hl.dsp.exec_cmd("~/dotfiles/00_scripts/rofi_theme
 hl.bind(mod .. " + X", hl.dsp.exec_cmd("~/dotfiles/00_scripts/rofi_powermenu.sh"))
 hl.bind(mod .. " + N", hl.dsp.exec_cmd("~/dotfiles/00_scripts/hyprsunset_toggle.sh"))
 
--- Screenshots and Color Picker
+-- Screenshots, Screenrecord and Color Picker
 hl.bind(mod .. " + F1",       hl.dsp.exec_cmd("~/dotfiles/00_scripts/ss_copy.sh"))
 hl.bind(mod .. " + ALT + F1", hl.dsp.exec_cmd("~/dotfiles/00_scripts/ss_save.sh"))
-hl.bind(mod .. " + F2",       hl.dsp.exec_cmd("hyprpicker"))
+hl.bind(mod .. " + F2",       hl.dsp.exec_cmd("~/dotfiles/00_scripts/screenrecord.sh"))
+hl.bind(mod .. " + F3",       hl.dsp.exec_cmd("hyprpicker"))
 
 -- Layout / Fullscreen Toggles
 hl.bind(mod .. " + F11", hl.dsp.exec_cmd("~/dotfiles/00_scripts/enter_fullscreen.sh"))
