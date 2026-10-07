@@ -7,6 +7,7 @@ waybar &
 sleep 0.225
 
 # Restore the settings
-hyprctl keyword general:gaps_in 4
-hyprctl keyword general:gaps_out 8
-hyprctl keyword general:border_size 2
+hyprctl eval 'hl.config({ general = { border_size = 1 } })'
+hyprctl eval 'hl.config({ general = { gaps_in = 3 } })'
+hyprctl eval 'hl.config({ general = { gaps_out = 9 } })'
+hyprctl eval 'hl.config({ decoration = { rounding = 10 } })'
