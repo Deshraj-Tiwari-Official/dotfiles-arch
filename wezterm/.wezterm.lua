@@ -11,7 +11,7 @@ config.animation_fps = 60
 -- config.default_workspace = "home" -- tmux handles sessions/workspaces
 
 -- VISUALS & THEME
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.97
 
 config.window_padding = {
   left = 0,
